@@ -1,0 +1,103 @@
+﻿@model List<MovieCollection>
+
+
+<main>
+    <style>
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+            table th,
+            table td {
+                padding: 12px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+
+            table button[type="submit"] {
+                background: #333;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                cursor: pointer;
+                border-radius: 5px;
+                font-size: 16px;
+            }
+
+                table button[type="submit"]:hover {
+                    background: #555;
+                }
+
+            table th {
+                background-color: #333;
+                color: #fff;
+                font-weight: bold;
+            }
+
+            table tr:hover {
+                background-color: #f1f1f1;
+            }
+
+            table tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+
+            /* Specific Style for thead */
+            table thead tr.fw-bold {
+                font-weight: bold;
+                background-color: #333;
+                color: #fff;
+            }
+
+            /* Ensuring td in thead are consistent */
+            table thead td {
+                padding: 12px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+                background-color: inherit;
+                color: inherit;
+            }
+
+    </style>
+    <h1>Gaze Upon The List Of Great Movies</h1>
+    <br />
+
+    <table>
+        <thead>
+            <tr class="fw-bold">
+                <td>Category</td>
+                <td>Title</td>
+                <td>Year</td>
+                <td>Director</td>
+                <td>Rating</td>
+                <td>Edited</td>
+                <td>Lent</td>
+                <td>Notes</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+        @foreach(var m in Model)
+        {
+            <tbody>
+                <tr>
+                    <td>@m.Category</td>
+                    <td>@m.Title</td>
+                    <td>@m.Year</td>
+                    <td>@m.Director</td>
+                    <td>@m.Rating</td>
+                    <td>@m.Edited</td>
+                    <td>@m.Lent</td>
+                    <td>@m.Notes</td>
+                    <td><button type="submit">Edit</button></td>
+                    <td><button style="background:#F00" type="submit">Delete</button></td>
+                </tr>
+            </tbody>
+        }        
+    </table>
+</main>

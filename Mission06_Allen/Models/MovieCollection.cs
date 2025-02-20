@@ -1,8 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Mission06_Allen.Models
 {
-    public class Movie
+    public class MovieCollection
     {
 
         [Key]
@@ -13,7 +15,7 @@ namespace Mission06_Allen.Models
 
         public string Title { get; set; }
 
-        [Range(1865, 2025)]
+        [Range(1888, 2025)]
         public int Year { get; set; }
 
         public string Director { get; set; }
@@ -22,9 +24,9 @@ namespace Mission06_Allen.Models
 
         public bool Edited { get; set; }
 
-        public string Lent { get; set; }
+        public string? Lent { get; set; } = string.Empty;
 
-        public string Notes { get; set; }
+        public string? Notes { get; set; } = string.Empty;
 
     }
 }

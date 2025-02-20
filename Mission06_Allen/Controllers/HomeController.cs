@@ -29,6 +29,15 @@ namespace Mission06_Allen.Controllers
             return View();
         }
 
+
+        // probably gonna have to mess w this a bit
+        public IActionResult MovieList()
+        {
+            var movies = _context.Movies.ToList();
+
+            return View(movies);
+        }
+
         [HttpGet]
         public IActionResult NewMovie()
         {
@@ -36,12 +45,17 @@ namespace Mission06_Allen.Controllers
         }
 
         [HttpPost]
-        public IActionResult NewMovie(Movie response)
+        public IActionResult NewMovie(MovieCollection response)
         {
             _context.Movies.Add(response);
             _context.SaveChanges();
 
-            return View("Thanks");
+            return View("Thanks", response);
+        }
+
+        public IActionResult Edit()
+        {
+            return View("NewMovie");
         }
     }
 }

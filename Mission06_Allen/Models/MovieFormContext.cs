@@ -8,6 +8,6 @@ namespace Mission06_Allen.Models
         {
         }
 
-        public DbSet<Movie> Movies { get; set; }
+        public DbSet<MovieCollection> Movies { get; set; }
     }
 }

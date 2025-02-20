@@ -1,4 +1,4 @@
-﻿@model Movie
+﻿@model MovieCollection
 
 <main>
     <h1>New Movie Form</h1>
@@ -17,20 +17,20 @@
         <br />
         <label asp-for="Rating">Rating</label>
         <select asp-for="Rating">
-            <option value="g">G</option>
-            <option value="pg">PG</option>
-            <option value="pg13">PG-13</option>
-            <option value="r">R</option>
+            <option value="G">G</option>
+            <option value="PG">PG</option>
+            <option value="PG13">PG-13</option>
+            <option value="R">R</option>
         </select>
         <br />
         <label asp-for="Edited">Edited</label>
         <input asp-for="Edited" />
         <br />
         <label asp-for="Lent">Lent To</label>
-        <input asp-for="Lent" />
+        <input asp-for="Lent" value=""/>
         <br />
         <label asp-for="Notes">Notes</label>
-        <input asp-for="Notes" maxlength="25" />
+        <input asp-for="Notes" maxlength="25" value=""/>
         <br />
         <button type="submit">Submit</button><br /><br /><br />
     </form>
