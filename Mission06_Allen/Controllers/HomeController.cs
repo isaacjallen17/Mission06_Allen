@@ -41,11 +41,13 @@ namespace Mission06_Allen.Controllers
         [HttpGet]
         public IActionResult NewMovie()
         {
+            ViewBag.Categories = _context.Categories.ToList();
+
             return View();
         }
 
         [HttpPost]
-        public IActionResult NewMovie(MovieCollection response)
+        public IActionResult NewMovie(Movie response)
         {
             _context.Movies.Add(response);
             _context.SaveChanges();

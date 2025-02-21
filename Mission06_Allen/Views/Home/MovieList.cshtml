@@ -1,4 +1,4 @@
-﻿@model List<MovieCollection>
+﻿@model List<Movie>
 
 
 <main>
@@ -77,6 +77,7 @@
                 <td>Rating</td>
                 <td>Edited</td>
                 <td>Lent</td>
+                <td>Copied To Plex</td>
                 <td>Notes</td>
                 <td></td>
                 <td></td>
@@ -86,13 +87,14 @@
         {
             <tbody>
                 <tr>
-                    <td>@m.Category</td>
+                    <td>@m.CategoryId</td>
                     <td>@m.Title</td>
                     <td>@m.Year</td>
                     <td>@m.Director</td>
                     <td>@m.Rating</td>
                     <td>@m.Edited</td>
-                    <td>@m.Lent</td>
+                    <td>@m.LentTo</td>
+                    <td>@m.CopiedToPlex</td>
                     <td>@m.Notes</td>
                     <td><button type="submit">Edit</button></td>
                     <td><button style="background:#F00" type="submit">Delete</button></td>
