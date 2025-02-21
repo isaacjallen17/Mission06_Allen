@@ -28,10 +28,10 @@ namespace Mission06_Allen.Controllers
         // probably gonna have to mess w this a bit
         public IActionResult MovieList()
         {
-            ViewBag.Categories = _context.Categories.ToList();
-
             var movies = _context.Movies
                 .OrderBy(x => x.Title).ToList();
+
+            ViewBag.Categories = _context.Categories.ToList();
 
             return View(movies);
         }
@@ -79,10 +79,21 @@ namespace Mission06_Allen.Controllers
         [HttpPost]
         public IActionResult Edit(Movie newInfo)
         {
-            _context.Update(newInfo);
-            _context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _context.Update(newInfo);
+                _context.SaveChanges();
 
-            return RedirectToAction("MovieList");
+                return RedirectToAction("MovieList");
+            }
+
+            else
+            {
+                ViewBag.Categories = _context.Categories.ToList();
+
+                return RedirectToAction("Edit", newInfo);
+            }
+            
         }
 
         [HttpGet]

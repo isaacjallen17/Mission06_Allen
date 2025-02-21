@@ -17,6 +17,7 @@ namespace Mission06_Allen.Models
         [Required(ErrorMessage = "Must input a title.")]
         public string Title { get; set; }
 
+        [Required(ErrorMessage = "Year input must be between 1888 and 2025.")]
         [Range(1888, 2025, ErrorMessage = "Year input must be between 1888 and 2025.")]
         public int Year { get; set; }
 

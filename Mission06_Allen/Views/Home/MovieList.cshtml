@@ -5,72 +5,72 @@
     <style>
         /* Table Styles */
         table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-            table th,
-            table td {
-                padding: 12px;
-                text-align: left;
-                border-bottom: 1px solid #ddd;
-            }
+        table th,
+        table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        }
 
-            table a {
-                background: #333;
-                color: #fff;
-                text-decoration: none;
-                border: none;
-                padding: 10px 20px;
-                cursor: pointer;
-                border-radius: 5px;
-                font-size: 16px;
-            }
+        table a {
+        background: #333;
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+        }
 
-                table a.scary {
-                    background: #f00
-                }
+        table a.scary {
+        background: #f00
+        }
 
-                table a.scary:hover {
-                    background: #c00
-                }
+        table a.scary:hover {
+        background: #c00
+        }
 
-                table a:hover {
-                    background: #555;
-                }
+        table a:hover {
+        background: #555;
+        }
 
-            table th {
-                background-color: #333;
-                color: #fff;
-                font-weight: bold;
-            }
+        table th {
+        background-color: #333;
+        color: #fff;
+        font-weight: bold;
+        }
 
-            table tr:hover {
-                background-color: #f1f1f1;
-            }
+        table tr:hover {
+        background-color: #f1f1f1;
+        }
 
-            table tr:nth-child(even) {
-                background-color: #f9f9f9;
-            }
+        table tr:nth-child(even) {
+        background-color: #f9f9f9;
+        }
 
-            /* Specific Style for thead */
-            table thead tr.fw-bold {
-                font-weight: bold;
-                background-color: #333;
-                color: #fff;
-            }
+        /* Specific Style for thead */
+        table thead tr.fw-bold {
+        font-weight: bold;
+        background-color: #333;
+        color: #fff;
+        }
 
-            /* Ensuring td in thead are consistent */
-            table thead td {
-                padding: 12px;
-                text-align: left;
-                border-bottom: 1px solid #ddd;
-                background-color: inherit;
-                color: inherit;
-            }
+        /* Ensuring td in thead are consistent */
+        table thead td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        background-color: inherit;
+        color: inherit;
+        }
 
     </style>
     <h1>Gaze Upon The List Of Great Movies</h1>
@@ -94,9 +94,17 @@
         </thead>
         @foreach(var m in Model)
         {
+            string cat = "";
+            foreach (Category c in ViewBag.categories)
+            {
+                if(c.CategoryId == m.CategoryId)
+                {
+                    cat = c.CategoryName;
+                }
+            }
             <tbody>
                 <tr>
-                    <td>@m.CategoryId</td>
+                    <td>@cat</td>
                     <td>@m.Title</td>
                     <td>@m.Year</td>
                     <td>@m.Director</td>
