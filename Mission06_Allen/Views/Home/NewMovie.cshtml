@@ -3,8 +3,13 @@
 <main>
     <h1>New Movie Form</h1>
     <form method="post">
-        <label asp-for="Category">Category</label>
-        <input asp-for="Category" />
+        <label asp-for="CategoryId">Select A Category</label>
+        <select asp-for="CategoryId">
+            @foreach (Category c in ViewBag.categories)
+            {
+                <option value="@c.CategoryId">@c.CategoryName</option>
+            }
+        </select>
         <br />
         <label asp-for="Title">Title</label>
         <input asp-for="Title" />
@@ -15,7 +20,7 @@
         <label asp-for="Director">Director</label>
         <input asp-for="Director" />
         <br />
-        yabel asp-for="Rating">Rating</label>
+        <label asp-for="Rating">Rating</label>
         <select asp-for="Rating">
             <option value="G">G</option>
             <option value="PG">PG</option>
@@ -24,10 +29,19 @@
         </select>
         <br />
         <label asp-for="Edited">Edited</label>
-        <input asp-for="Edited" />
+        <select asp-for="Edited">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
         <br />
         <label asp-for="LentTo">Lent To</label>
         <input asp-for="LentTo" value="" />
+        <br />
+        <label asp-for="CopiedToPlex">Is Movie Copied To Plex?</label>
+        <select asp-for="CopiedToPlex">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
         <br />
         <label asp-for="Notes">Notes</label>
         <input asp-for="Notes" maxlength="25" value="" />
