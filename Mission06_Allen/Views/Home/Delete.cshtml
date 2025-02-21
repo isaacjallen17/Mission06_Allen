@@ -1,0 +1,47 @@
+﻿@model Movie
+
+
+
+
+<main>
+	<style>
+        /* Common styles */
+        form a,
+        form button {
+            color: #fff;
+            display: inline-block;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        /* Specific color for button */
+        form button.scaary {
+            background: #f00;
+        }
+
+            form button.scaary:hover {
+                background: #c00;
+            }
+
+        /* Specific color for a tag */
+        form a {
+            background: #333;
+        }
+
+            form a:hover {
+                background: #555;
+            }
+
+
+	</style>
+    <form method="post" style="text-align: center">
+        <h1>Are You Sure You Want To Delete @Model.Title</h1><br /><br />
+		<a type="button" asp-controller="Home" asp-action="MovieList" >Cancel</a>
+		<button class="scaary" type="submit">Delete</button>
+	</form>
+</main>

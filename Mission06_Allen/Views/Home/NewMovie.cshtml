@@ -3,6 +3,7 @@
 <main>
     <h1>New Movie Form</h1>
     <form method="post">
+        <input asp-for="MovieId" hidden />
         <label asp-for="CategoryId">Select A Category</label>
         <select asp-for="CategoryId">
             @foreach (Category c in ViewBag.categories)
@@ -35,7 +36,7 @@
         </select>
         <br />
         <label asp-for="LentTo">Lent To</label>
-        <input asp-for="LentTo" value="" />
+        <input asp-for="LentTo"/>
         <br />
         <label asp-for="CopiedToPlex">Is Movie Copied To Plex?</label>
         <select asp-for="CopiedToPlex">
@@ -44,7 +45,7 @@
         </select>
         <br />
         <label asp-for="Notes">Notes</label>
-        <input asp-for="Notes" maxlength="25" value="" />
+        <input asp-for="Notes"/>
         <br />
         <button type="submit">Submit</button><br /><br /><br />
     </form>

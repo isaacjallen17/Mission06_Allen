@@ -22,12 +22,21 @@
             table a {
                 background: #333;
                 color: #fff;
+                text-decoration: none;
                 border: none;
                 padding: 10px 20px;
                 cursor: pointer;
                 border-radius: 5px;
                 font-size: 16px;
             }
+
+                table a.scary {
+                    background: #f00
+                }
+
+                table a.scary:hover {
+                    background: #c00
+                }
 
                 table a:hover {
                     background: #555;
@@ -87,7 +96,7 @@
         {
             <tbody>
                 <tr>
-                    <td>@m.CategoryName</td>
+                    <td>@m.Category</td>
                     <td>@m.Title</td>
                     <td>@m.Year</td>
                     <td>@m.Director</td>
@@ -97,7 +106,7 @@
                     <td>@m.CopiedToPlex</td>
                     <td>@m.Notes</td>
                     <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@m.MovieId">Edit</a></td>
-                    <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@m.MovieId">Delete</a></td>
+                    <td><a asp-controller="Home" class="scary" asp-action="Delete" asp-route-id="@m.MovieId">Delete</a></td>
                 </tr>
             </tbody>
         }        

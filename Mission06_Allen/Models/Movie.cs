@@ -12,7 +12,7 @@ namespace Mission06_Allen.Models
 
         [ForeignKey("CategoryId")]
         public int? CategoryId { get; set; }
-        public Category CategoryName { get; set; }
+        public Category? Category { get; set; }
         public string Title { get; set; }
 
         [Range(1888, 2025)]
@@ -28,6 +28,7 @@ namespace Mission06_Allen.Models
 
         public int CopiedToPlex { get; set; }
 
+        [MaxLength(25)]
         public string? Notes { get; set; }
 
     }
