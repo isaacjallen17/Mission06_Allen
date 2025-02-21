@@ -55,9 +55,15 @@ namespace Mission06_Allen.Controllers
             return View("Thanks", response);
         }
 
-        public IActionResult Edit()
+        [HttpGet]
+        public IActionResult Edit(int id)
         {
-            return View("NewMovie");
+            var record = _context.Movies
+                .Single(x => x.MovieId == id);
+
+            ViewBag.Categories = _context.Categories.ToList();
+
+            return View("NewMovie", record);
         }
     }
 }

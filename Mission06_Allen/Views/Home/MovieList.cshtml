@@ -19,7 +19,7 @@
                 border-bottom: 1px solid #ddd;
             }
 
-            table button[type="submit"] {
+            table a {
                 background: #333;
                 color: #fff;
                 border: none;
@@ -29,7 +29,7 @@
                 font-size: 16px;
             }
 
-                table button[type="submit"]:hover {
+                table a:hover {
                     background: #555;
                 }
 
@@ -87,7 +87,7 @@
         {
             <tbody>
                 <tr>
-                    <td>@m.CategoryId</td>
+                    <td>@m.CategoryName</td>
                     <td>@m.Title</td>
                     <td>@m.Year</td>
                     <td>@m.Director</td>
@@ -96,8 +96,8 @@
                     <td>@m.LentTo</td>
                     <td>@m.CopiedToPlex</td>
                     <td>@m.Notes</td>
-                    <td><button type="submit">Edit</button></td>
-                    <td><button style="background:#F00" type="submit">Delete</button></td>
+                    <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@m.MovieId">Edit</a></td>
+                    <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@m.MovieId">Delete</a></td>
                 </tr>
             </tbody>
         }        
