@@ -36,8 +36,9 @@
 
 	</style>
     <form method="post" style="text-align: center">
+        <input asp-for="MovieId" hidden />
         <h1>Are You Sure You Want To Delete @Model.Title</h1><br /><br />
 		<button asp-controller="Home" asp-action="MovieList" >Cancel</button>
-		<button class="scaary" type="submit">Delete</button>
+		<button class="scaary" type="submit">Delete</button><br /><br />
 	</form>
 </main>

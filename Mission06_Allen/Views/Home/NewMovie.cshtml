@@ -3,6 +3,7 @@
 <main>
     <h1>New Movie Form</h1>
     <form method="post">
+        <div asp-validation-summary="All"></div>
         <input asp-for="MovieId" hidden />
         <label asp-for="CategoryId">Select A Category</label>
         <select asp-for="CategoryId">
@@ -16,7 +17,7 @@
         <input asp-for="Title" />
         <br />
         <label asp-for="Year">Year</label>
-        <input asp-for="Year" />
+        <input asp-for="Year" value=""/>
         <br />
         <label asp-for="Director">Director</label>
         <input asp-for="Director" />
@@ -30,22 +31,16 @@
         </select>
         <br />
         <label asp-for="Edited">Edited</label>
-        <select asp-for="Edited">
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-        </select>
+        <input asp-for="Edited" type="checkbox" value="true" />
         <br />
         <label asp-for="LentTo">Lent To</label>
         <input asp-for="LentTo"/>
         <br />
         <label asp-for="CopiedToPlex">Is Movie Copied To Plex?</label>
-        <select asp-for="CopiedToPlex">
-            <option value="1">Yes</option>
-            <option value="0">No</option>
-        </select>
+        <input asp-for="CopiedToPlex" type="checkbox" value="true" />
         <br />
         <label asp-for="Notes">Notes</label>
-        <input asp-for="Notes"/>
+        <input maxlength="25" asp-for="Notes"/>
         <br />
         <button type="submit">Submit</button><br /><br /><br />
     </form>

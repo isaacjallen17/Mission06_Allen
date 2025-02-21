@@ -24,18 +24,14 @@ namespace Mission06_Allen.Controllers
         {
             return View();
         }
-        public IActionResult Thanks()
-        {
-            return View();
-        }
-
 
         // probably gonna have to mess w this a bit
         public IActionResult MovieList()
         {
             ViewBag.Categories = _context.Categories.ToList();
 
-            var movies = _context.Movies.ToList();
+            var movies = _context.Movies
+                .OrderBy(x => x.Title).ToList();
 
             return View(movies);
         }
@@ -45,16 +41,28 @@ namespace Mission06_Allen.Controllers
         {
             ViewBag.Categories = _context.Categories.ToList();
 
-            return View();
+            return View(new Movie());
         }
 
         [HttpPost]
         public IActionResult NewMovie(Movie response)
         {
-            _context.Movies.Add(response);
-            _context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _context.Movies.Add(response);
+                _context.SaveChanges();
 
-            return View("Thanks", response);
+                return View("ThankYou");
+            }
+
+            else
+            {
+                ViewBag.Categories = _context.Categories.ToList();
+
+
+                return View(response);
+            }
+            
         }
 
         [HttpGet]
@@ -84,6 +92,15 @@ namespace Mission06_Allen.Controllers
                 .Single(x => x.MovieId == id);
 
             return View(byebye);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Movie movie)
+        {
+            _context.Movies.Remove(movie);
+            _context.SaveChanges();
+
+            return RedirectToAction("MovieList");
         }
     }
 }
